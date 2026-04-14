@@ -1,8 +1,4 @@
 
-RAMANI - 7981674662
-
-
-MADHU - 7396627149
 
 demo :
 
@@ -400,5 +396,256 @@ TOMCAT
 
 
 ==========
+======================================================================================
+DATE: 14 APR 2026
+
+
+
+JENKINS UPGRADE :
+
+
+====================================================================
+JENKINS DISTRIBUTED ARCHITECTURE (MASTER–AGENT)
+====================================================================
+
+--------------------------------------------------
+WHAT IS DISTRIBUTED ARCHITECTURE?
+--------------------------------------------------
+
+    Jenkins distributed architecture allows
+    multiple machines to work together.
+
+    Instead of running all jobs on one server,
+    Jenkins distributes work to multiple nodes.
+
+    Improves:
+        • Performance
+        • Scalability
+        • Flexibility
+		. Security 
+
+
+--------------------------------------------------
+MASTER–AGENT ARCHITECTURE
+--------------------------------------------------
+
+    Master (Controller):
+        • Manages Jenkins
+        • UI (Dashboard)
+        • Schedules jobs
+        • Stores configuration
+
+    Agent (Slave/Node):
+        • Executes jobs
+        • Runs builds
+        • Can be multiple machines
+
+
+--------------------------------------------------
+WHY DO WE NEED DISTRIBUTED SETUP?
+--------------------------------------------------
+Building on the built-in node can be a security issue. You should set up distributed builds.
+
+    Problem with single server:
+
+        • Heavy load
+        • Slow builds
+        • Resource limitation
+		. Security concerns 
+
+    Solution:
+
+        Distribute jobs across multiple agents
+
+    Benefits:
+
+        • Faster builds
+        • Parallel execution
+        • Better resource utilization
+
+
+--------------------------------------------------
+HOW IT WORKS (FLOW)
+--------------------------------------------------
+
+    Developer pushes code
+            ↓
+    Jenkins Master receives trigger
+            ↓
+    Master schedules job
+            ↓
+    Job sent to Agent
+            ↓
+    Agent executes build/test/deploy
+            ↓
+    Result sent back to Master
+
+
+--------------------------------------------------
+AGENT TYPES
+--------------------------------------------------
+
+    1) Static Agents
+        • Manually created
+        • Always available
+
+    2) Dynamic Agents
+        • Created on demand
+        • Used in cloud (AWS, Kubernetes)
+
+
+--------------------------------------------------
+HOW MASTER COMMUNICATES WITH AGENTS
+--------------------------------------------------
+
+    Common methods:
+
+        • SSH
+        • JNLP (Java Web Start)
+        • Kubernetes plugin
+
+    Master → Agent connection must be secure.
+
+
+--------------------------------------------------
+SETTING UP AGENT (HIGH LEVEL STEPS)
+--------------------------------------------------
+
+    Step 1:
+        Go to Manage Jenkins → Nodes
+
+    Step 2:
+        Add new node
+
+    Step 3:
+        Configure:
+
+            • Node name
+            • Remote directory
+            • Labels
+            • Launch method (SSH/JNLP)
+
+    Step 4:
+        Connect agent machine
+
+
+--------------------------------------------------
+LABELS (IMPORTANT)
+--------------------------------------------------
+
+    Labels are used to assign jobs to specific agents.
+
+Example:
+
+    agent {
+        label "docker"
+    }
+
+    Meaning:
+        Run job only on agent with label "docker"
+
+
+--------------------------------------------------
+REAL-TIME DEVOPS USE CASE
+--------------------------------------------------
+
+    Scenario:
+
+        • Java builds require Maven
+        • Docker builds require Docker
+        • Testing needs separate environment
+
+    Setup:
+
+        Agent 1 → Java + Maven
+        Agent 2 → Docker
+        Agent 3 → Testing tools
+
+    Jenkins routes jobs accordingly.
+
+
+--------------------------------------------------
+ADVANCED SETUP (CLOUD)
+--------------------------------------------------
+
+    Jenkins can create agents dynamically:
+
+        • AWS EC2 plugin
+        • Kubernetes plugin
+
+    Flow:
+
+        Job triggered
+            ↓
+        New agent created
+            ↓
+        Job executed
+            ↓
+        Agent terminated
+
+    Benefit:
+        Cost optimization
+
+
+--------------------------------------------------
+ADVANTAGES
+--------------------------------------------------
+
+    • Parallel builds
+    • Faster execution
+    • Scalable
+    • Supports multiple environments
+    • Efficient resource usage
+
+
+--------------------------------------------------
+DISADVANTAGES
+--------------------------------------------------
+
+    • Setup complexity
+    • Network dependency
+    • Agent management needed
+
+
+--------------------------------------------------
+IMPORTANT NOTES
+--------------------------------------------------
+
+    • Master should NOT run heavy jobs
+    • Always use agents for execution
+    • Secure communication (SSH keys)
+    • Use labels for control
+
+
+--------------------------------------------------
+SIMPLE SUMMARY
+--------------------------------------------------
+
+    Master:
+        Controls everything
+
+    Agent:
+        Executes jobs
+
+    Distributed Jenkins:
+        One master → Multiple agents
+
+    Purpose:
+        Faster, scalable CI/CD execution
+		
+		
+============================================================================
+		
+JENKINS RESTARTS :
+
+
+systemctl start/stop/status/restrat jenkins 
+
+
+from GUI:
+
+http://PUB_IP:8080/restart
+http://PUB_IP:8080/safeRestart
+
 
 
