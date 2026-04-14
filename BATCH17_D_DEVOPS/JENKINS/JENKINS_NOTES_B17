@@ -154,82 +154,251 @@ http://44.200.135.151:8080/job/job3-prod/build?token=abc123
 or /buildWithParameters?token=TOKEN_NAME
 
 
-
+-------
+CRON TAB:
 
 ===============
-cron tab :
+
+======================================================================================================================================
+
+NOTES :
+
+--------------------------------------------------
+WHAT IS JENKINS?
+--------------------------------------------------
+
+    Jenkins is an open-source automation tool
+    used for CI/CD (Continuous Integration & Deployment).
+
+    It automates:
+        • Build
+        • Test
+        • Deploy
 
 
-* * * * *
+--------------------------------------------------
+JENKINS INSTALLATION (AMAZON LINUX / RHEL)
+--------------------------------------------------
 
-
-===================
-
-vi editor :
-
-
-
-vim testfile 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+mount -o remount,size=4G /tmp
 sudo yum update –y
-
 sudo wget -O /etc/yum.repos.d/jenkins.repo \
-    https://pkg.jenkins.io/rpm-stable/jenkins.repo
-	
+    https://pkg.jenkins.io/rpm-stable/jenkins.repo		
 sudo rpm --import https://pkg.jenkins.io/rpm-stable/jenkins.io-2026.key
-
-sudo yum upgrade
-
+sudo yum upgrade -y
 sudo yum install java-21-amazon-corretto -y
-
 sudo yum install jenkins -y
-
 sudo systemctl enable jenkins
-
 sudo systemctl start jenkins
-
 sudo systemctl status jenkins
+
+explanation:
+
+    Increase /tmp space (optional):
+
+        mount -o remount,size=4G /tmp
+
+
+    Update system:
+
+        sudo yum update -y
+
+
+    Add Jenkins repository:
+
+        sudo wget -O /etc/yum.repos.d/jenkins.repo \
+            https://pkg.jenkins.io/rpm-stable/jenkins.repo
+
+
+    Import Jenkins key:
+
+        sudo rpm --import https://pkg.jenkins.io/rpm-stable/jenkins.io-2026.key
+
+
+    Upgrade packages:
+
+        sudo yum upgrade -y
+
+
+    Install Java (required):
+
+        sudo yum install java-21-amazon-corretto -y
+
+
+    Install Jenkins:
+
+        sudo yum install jenkins -y
+
+
+    Enable Jenkins service:
+
+        sudo systemctl enable jenkins
+
+
+    Start Jenkins:
+
+        sudo systemctl start jenkins
+
+
+    Check status:
+
+        sudo systemctl status jenkins
+
+
+--------------------------------------------------
+ACCESS JENKINS
+--------------------------------------------------
+
+    Open browser:
+
+        http://<EC2-PUBLIC-IP>:8080
+
+    Get initial admin password:
+
+        sudo cat /var/lib/jenkins/secrets/initialAdminPassword
+
+
+--------------------------------------------------
+JENKINS ARCHITECTURE
+--------------------------------------------------
+
+    Master:
+        Controls jobs and UI
+
+    Agent:
+        Executes jobs
+
+    One master → Multiple agents
+
+
+--------------------------------------------------
+JENKINS JOB TYPES
+--------------------------------------------------
+
+    • Freestyle
+    • Pipeline
+    • Multibranch Pipeline
+
+
+--------------------------------------------------
+JENKINSFILE (PIPELINE AS CODE)
+--------------------------------------------------
+
+Example:
+
+    pipeline {
+        agent any
+
+        stages {
+            stage('Build') {
+                steps {
+                    echo "Building application"
+                }
+            }
+        }
+    }
+
+
+--------------------------------------------------
+REAL DEVOPS FLOW
+--------------------------------------------------
+
+    GitHub → Jenkins → Build → Test → Deploy
+
+
+--------------------------------------------------
+IMPORTANT FEATURES
+--------------------------------------------------
+
+    • Plugins
+    • Pipeline as code
+    • Integration with:
+        - AGitHub
+        - Docker
+        - Kubernetes
+        - AWS
+
+
+------------------------------
+
+    Jenkins = CI/CD tool
+
+    Install → Start → Access via browser
+
+    Automates:
+        Build → Test → Deploy
+
+
+=========================================================================================================================
+
+============================================================
+                VIM EDITOR BASICS
+============================================================
+
+Open a file in vim:
+    vim fname
+
+------------------------------------------------------------
+Insert Mode  ( esc - i )
+
+   - Press: i
+   - Used to type/edit text
+
+   Example:
+        esc → i  ----> Insert Mode
+
+        ---
+        ----
+        ---  data---
+        ----
+        ---
+
+------------------------------------------------------------
+EXITING & SAVING
+------------------------------------------------------------
+
+Press ESC first to go to Normal Mode, then use:
+:
+esc :w      → Save file
+esc :q      → Quit/close
+esc :wq     → Save and Quit
+esc :wq!    → Force Save and Quit
+
+============================================================
+                DOWNLOAD FILES
+============================================================
+
+Using wget:
+    wget <web-URL>
+
+Example:
+    wget https://example.com/file.tar.gz
+
+============================================================
+                EXTRACT FILES
+============================================================
+
+Extract .tar.gz file:
+    tar -xvf file.tar.gz
+
+Options:
+    -x  → Extract
+    -v  → Verbose (shows progress)
+    -f  → File name
+
+============================================================
+
+TOMCAT
+
+
+
+<?xml version="1.0" encoding="utf-8"?>
+  <tomcat-users>
+  <role rolename="manager-gui"/>
+ <user username="tomcat" password="tomcat" roles="manager-gui, manager-script, manager-status"/>
+</tomcat-users>
+
+
+==========
 
 
