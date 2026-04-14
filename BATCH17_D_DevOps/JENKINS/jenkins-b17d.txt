@@ -1,0 +1,235 @@
+
+RAMANI - 7981674662
+
+
+MADHU - 7396627149
+
+demo :
+
+DAY - O 
+
+Git Bash download & Installation 
+
+Basic Linux Commands :
+
+7396627149 - 
+
+pwd
+
+touch file1 file2
+
+mkdir dir1 dir2 
+
+rm -rf file/dir 
+
+ls 
+
+ll
+
+ls -la
+
+ls -lrth 
+
+cd dir
+
+cd /
+
+cd ..
+
+clear 
+
+cat fname 
+
+--------------------------------------
+
+GIT HUB ACCOUNT :
+
+
+---------------------------------------
+==================================================
+AWS FREE TIER account creation
+
+AWS Free Tier allows new users to try AWS services
+without paying immediately.
+
+It is mainly used for:
+- Learning AWS
+- Practice
+- Small experiments
+- Beginners in Cloud
+
+
+========================================
+AWS FREE TIER – CURRENT USAGE MODEL
+(NEW ACCOUNTS)
+========================================
+
+For new AWS accounts:
+
+- AWS offers a Free Plan with credits
+- You can get up to $200 AWS credits
+  - $100 at signup
+  - Up to $100 by completing learning activities
+
+- Valid for:
+  - 6 months
+  - OR until credits are used (whichever comes first)
+
+- No charges unless you upgrade to Paid Plan
+
+
+========================================
+
+day -1 : 2 apr 2026 
+
+
+server creation 
+Connection to server 
+
+
+whoami ---> ec2-user 
+
+sudo su - root 
+
+yum installl <pkg>
+
+
+============
+
+mount -o remount,size=4G /tmp
+sudo yum update –y
+sudo wget -O /etc/yum.repos.d/jenkins.repo \
+    https://pkg.jenkins.io/rpm-stable/jenkins.repo		
+sudo rpm --import https://pkg.jenkins.io/rpm-stable/jenkins.io-2026.key
+sudo yum upgrade -y
+sudo yum install java-21-amazon-corretto -y
+sudo yum install jenkins -y
+sudo systemctl enable jenkins
+sudo systemctl start jenkins
+sudo systemctl status jenkins
+
+
+mount -o remount,size=4G /tmp 
+sudo systemctl restart jenkins
+sudo systemctl stop jenkins
+sudo systemctl start jenkins
+
+
+ctrl + c 
+
+ec2-32-192-77-188.compute-1.amazonaws.com:8080
+
+/var/lib/jenkins 
+
+
+
+
+
+
+7396627149  --> 
+
+
+
+
+=====================================
+
+
+Jenkins.instance.getAllItems().each {
+    println(it.name)
+}
+
+=================================
+
+https://github.com/devopstraininghub
+
+https://github.com/devopstraininghub/mindcircuit16d.git
+
+
+
+
+===============================
+
+http://44.200.135.151:8080/job/job3-prod/build?token=abc123 
+
+or /buildWithParameters?token=TOKEN_NAME
+
+
+
+
+===============
+cron tab :
+
+
+* * * * *
+
+
+===================
+
+vi editor :
+
+
+
+vim testfile 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+sudo yum update –y
+
+sudo wget -O /etc/yum.repos.d/jenkins.repo \
+    https://pkg.jenkins.io/rpm-stable/jenkins.repo
+	
+sudo rpm --import https://pkg.jenkins.io/rpm-stable/jenkins.io-2026.key
+
+sudo yum upgrade
+
+sudo yum install java-21-amazon-corretto -y
+
+sudo yum install jenkins -y
+
+sudo systemctl enable jenkins
+
+sudo systemctl start jenkins
+
+sudo systemctl status jenkins
+
+
